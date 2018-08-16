@@ -31,10 +31,21 @@ proto_api(
     organization = "google",
     repository = "protobuf",
     commit = PROTOBUF_COMMIT,
-    name = "any",
+    name = "duration",
     root = "src",
-    files = ["google/protobuf/any.proto"],
-    go_package = "github.com/golang/protobuf/ptypes/any",
+    files = ["google/protobuf/duration.proto"],
+    go_package = "github.com/golang/protobuf/ptypes/duration",
+)
+
+proto_api(
+    location = "github.com",
+    organization = "google",
+    repository = "protobuf",
+    commit = PROTOBUF_COMMIT,
+    name = "empty",
+    root = "src",
+    files = ["google/protobuf/empty.proto"],
+    go_package = "github.com/golang/protobuf/ptypes/empty",
 )
 
 proto_api(
@@ -120,5 +131,20 @@ proto_api(
         "wrappers",
         "status",
         "build_status",
+    ],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "googleapis",
+    repository = "googleapis",
+    commit = GOOGLEAPIS_COMMIT,
+    name = "publish_build_event",
+    files = ["google/devtools/build/v1/publish_build_event.proto"],
+    deps = [
+        "annotations",
+        "build_events",
+        "duration",
+        "empty",
     ],
 )
