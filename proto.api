@@ -1,0 +1,121 @@
+PROTOBUF_COMMIT = "ab09b2a2e203b204e11ac64750e62b3f1da7dc6e"
+GOOGLEAPIS_COMMIT = "d777a7f63a317ffa5dd88b191c312ab3d981a608"
+
+proto_api(
+    location = "github.com",
+    organization = "google",
+    repository = "protobuf",
+    commit = PROTOBUF_COMMIT,
+    name = "descriptor",
+    root = "src",
+    files = ["google/protobuf/descriptor.proto"],
+    go_package = "github.com/golang/protobuf/protoc-gen-go/descriptor",
+)
+
+proto_api(
+    location = "github.com",
+    organization = "google",
+    repository = "protobuf",
+    commit = PROTOBUF_COMMIT,
+    name = "any",
+    root = "src",
+    files = ["google/protobuf/any.proto"],
+    go_package = "github.com/golang/protobuf/ptypes/any",
+)
+
+proto_api(
+    location = "github.com",
+    organization = "google",
+    repository = "protobuf",
+    commit = PROTOBUF_COMMIT,
+    name = "any",
+    root = "src",
+    files = ["google/protobuf/any.proto"],
+    go_package = "github.com/golang/protobuf/ptypes/any",
+)
+
+proto_api(
+    location = "github.com",
+    organization = "google",
+    repository = "protobuf",
+    commit = PROTOBUF_COMMIT,
+    name = "timestamp",
+    root = "src",
+    files = ["google/protobuf/timestamp.proto"],
+    go_package = "github.com/golang/protobuf/ptypes/timestamp",
+)
+
+proto_api(
+    location = "github.com",
+    organization = "google",
+    repository = "protobuf",
+    commit = PROTOBUF_COMMIT,
+    name = "wrappers",
+    root = "src",
+    files = ["google/protobuf/wrappers.proto"],
+    go_package = "github.com/golang/protobuf/ptypes/wrappers",
+)
+
+proto_api(
+    location = "github.com",
+    organization = "googleapis",
+    repository = "googleapis",
+    commit = GOOGLEAPIS_COMMIT,
+    name = "http",
+    files = ["google/api/http.proto"],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "googleapis",
+    repository = "googleapis",
+    commit = GOOGLEAPIS_COMMIT,
+    name = "annotations",
+    files = ["google/api/annotations.proto"],
+    deps = [
+        "http",
+        "descriptor",
+    ],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "googleapis",
+    repository = "googleapis",
+    commit = GOOGLEAPIS_COMMIT,
+    name = "status",
+    files = ["google/rpc/status.proto"],
+    deps = [
+        "any",
+    ],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "googleapis",
+    repository = "googleapis",
+    commit = GOOGLEAPIS_COMMIT,
+    name = "build_status",
+    files = ["google/devtools/build/v1/build_status.proto"],
+    deps = [
+        "any",
+        "annotations",
+    ],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "googleapis",
+    repository = "googleapis",
+    commit = GOOGLEAPIS_COMMIT,
+    name = "build_events",
+    files = ["google/devtools/build/v1/build_events.proto"],
+    deps = [
+        "any",
+        "annotations",
+        "timestamp",
+        "wrappers",
+        "status",
+        "build_status",
+    ],
+)
