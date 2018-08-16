@@ -1,3 +1,6 @@
+# Proto API build file for proto.stack.build
+# Generates code for the bazel build event service.
+
 PROTOBUF_COMMIT = "ab09b2a2e203b204e11ac64750e62b3f1da7dc6e"
 GOOGLEAPIS_COMMIT = "d777a7f63a317ffa5dd88b191c312ab3d981a608"
 
