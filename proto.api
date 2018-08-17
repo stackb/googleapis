@@ -1,6 +1,8 @@
 # Proto API build file for proto.stack.build
 # Generates code for the bazel build event service.
 # Test 1: see if import replacement works 
+# Test 2: PVC, print debug, cuz it didnt work
+# Test 3: PVC mount messed up the bazel build.  Can't work across partition, I guess
 
 PROTOBUF_COMMIT = "e34ec6077af141dd5dfc1c334ecdcce3c6b51612"
 GOOGLEAPIS_COMMIT = "d777a7f63a317ffa5dd88b191c312ab3d981a608"
