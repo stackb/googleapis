@@ -56,56 +56,11 @@ gazelle_dependencies()
 
 # gazelle:repo bazel_gazelle
 
-go_repository(
-    name = "build_stack_go_github_com_google_protobuf_any_b3a0960f",
-    importpath = "go.stack.build/github.com/google/protobuf/any/b3a0960f",
-    commit = "12e56ccdf5b60cb22dd9ee6fbf1540a6d284b691",
-)
-
-go_repository(
-    name = "build_stack_go_github_com_google_protobuf_descriptor_713ee215",
-    importpath = "go.stack.build/github.com/google/protobuf/descriptor/713ee215",
-    commit = "7dd38495dc455a7de56056295898fde6761edc37",
-)
-
-go_repository(
-    name = "build_stack_go_github_com_google_protobuf_timestamp_dafad809",
-    importpath = "go.stack.build/github.com/google/protobuf/timestamp/dafad809",
-    commit = "477878dc7acaef8814510213a46123631cc60d60",
-)
-
-go_repository(
-    name = "build_stack_go_github_com_google_protobuf_wrappers_ce39ab37",
-    importpath = "go.stack.build/github.com/google/protobuf/wrappers/ce39ab37",
-    commit = "7b4c9c626c3225ccf9631c775be07f8c64801307",
-)
-
-go_repository(
-    name = "build_stack_go_github_com_googleapis_googleapis_status_cfe88cab",
-    importpath = "go.stack.build/github.com/googleapis/googleapis/status/cfe88cab",
-    commit = "d67f6bc2dbf4c505c821afeac4fe4c89fff7ea94",
-)
-
-go_repository(
-    name = "build_stack_go_github_com_googleapis_googleapis_http_2c560493",
-    importpath = "go.stack.build/github.com/googleapis/googleapis/http/2c560493",
-    commit = "45937d74db365dbb049ae97e0930ac0642ed3444",
-)
-
-go_repository(
-    name = "build_stack_go_github_com_googleapis_googleapis_annotations_164b695e",
-    importpath = "go.stack.build/github.com/googleapis/googleapis/annotations/164b695e",
-    commit = "d8f543a74582189dc7f216a184e64be4c814d472",
-)
-
-go_repository(
-    name = "build_stack_go_github_com_googleapis_googleapis_build_status_2b963b92",
-    importpath = "go.stack.build/github.com/googleapis/googleapis/build_status/2b963b92",
-    commit = "48c4dd8296e5a7751f4a05b1b067c730f837fba2",
-)
-
-go_repository(
+git_repository(
     name = "build_stack_go_github_com_googleapis_googleapis_build_events_e8a83bde",
-    importpath = "go.stack.build/github.com/googleapis/googleapis/build_events/e8a83bde",
+    remote = "go.stack.build/github.com/googleapis/googleapis/build_events/e8a83bde",
     commit = "7cd50fa0bec58a84ba5cb8016a9629d5263f68b6",
 )
+
+load("@build_stack_go_github_com_googleapis_googleapis_build_events_e8a83bde//:godeps.bzl", "go_proto_repositories")
+go_proto_repositories()
