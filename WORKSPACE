@@ -32,12 +32,24 @@ gazelle_dependencies()
 git_repository(
     name = "build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7",
     remote = "https://go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7.git",
-    commit = "fd20e52ed40ceeb3066450da48004f9d4ca006ff",
+    commit = "4c01b6771c0631c92380f2ca366bd73655966465",
 )
 
-load("@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//:godeps.bzl", "go_proto_repositories")
+load(
+    "@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//:godeps.bzl",
+    "publish_build_event_proto_repositories",
+)
 
-go_proto_repositories()
+publish_build_event_proto_repositories()
+
+go_repository(
+    name = "com_github_golang_protobuf",
+    importpath = "github.com/golang/protobuf",
+    urls = ["https://github.com/golang/protobuf/archive/bbd03ef6da3a115852eaf24c8a1c46aeb39aa175.tar.gz"],
+    strip_prefix = "protobuf-bbd03ef6da3a115852eaf24c8a1c46aeb39aa175/",
+    build_file_generation = "on",
+    build_file_proto_mode = "disable",
+)
 
 go_repository(
     name = "org_golang_google_grpc",
