@@ -29,38 +29,21 @@ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 
 gazelle_dependencies()
 
-# # http_archive(
-# #     name = "com_github_scele_rules_go_dep",
-# #     urls = ["https://github.com/scele/rules_go_dep/archive/49a5e4ca9f6a16c9b4c930a51ce3a537498bb4e1.tar.gz"],
-# #     strip_prefix = "rules_go_dep-49a5e4ca9f6a16c9b4c930a51ce3a537498bb4e1",
-# #     sha256 = "f170d3d6f55e216f1493f975cde6c489d7070da2a8a41fd4de9812d96f4fb38b",
-# # )
-
-# local_repository(
-#     name = "com_github_scele_rules_go_dep",
-#     path = "/home/pcj/go/src/github.com/pcj/rules_go_dep",
-# )
-
-# load("@com_github_scele_rules_go_dep//dep:dep.bzl", "dep_import")
-
-# # https://gist.github.com/subfuzion/12342599e26f5094e4e2d08e9d4ad50d
-# dep_import(
-#     name = "godeps",
-#     prefix = "github.com/stackb/googleapis",
-#     gopkg_lock = "//:Gopkg.lock",
-# )
-
-# load("@godeps//:Gopkg.bzl", "go_deps")
-
-# go_deps()
-
-# gazelle:repo bazel_gazelle
-
 git_repository(
-    name = "build_stack_go_github_com_googleapis_googleapis_build_events_e8a83bde",
-    remote = "go.stack.build/github.com/googleapis/googleapis/build_events/e8a83bde",
-    commit = "7cd50fa0bec58a84ba5cb8016a9629d5263f68b6",
+    name = "build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7",
+    remote = "https://go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7.git",
+    commit = "fd20e52ed40ceeb3066450da48004f9d4ca006ff",
 )
 
-load("@build_stack_go_github_com_googleapis_googleapis_build_events_e8a83bde//:godeps.bzl", "go_proto_repositories")
+load("@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//:godeps.bzl", "go_proto_repositories")
+
 go_proto_repositories()
+
+go_repository(
+    name = "org_golang_google_grpc",
+    importpath = "google.golang.org/grpc",
+    urls = ["https://github.com/grpc/grpc-go/archive/1e2570b1b19ade82d8dbb31bba4e65e9f9ef5b34.tar.gz"],
+    strip_prefix = "grpc-go-1e2570b1b19ade82d8dbb31bba4e65e9f9ef5b34/",
+    build_file_generation = "on",
+    build_file_proto_mode = "disable",
+)
