@@ -42,6 +42,19 @@ load(
 
 publish_build_event_proto_repositories()
 
+git_repository(
+    name = "build_stack_go_github_com_bazelbuild_bazel_build_event_stream_d6b40d94",
+    remote = "https://go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94.git",
+    commit = "9386f2933bc6a51a2ad14d3ab8495134bdd29179",
+)
+
+load(
+    "@build_stack_go_github_com_bazelbuild_bazel_build_event_stream_d6b40d94//:godeps.bzl",
+    "build_event_stream_proto_repositories",
+)
+
+build_event_stream_proto_repositories()
+
 go_repository(
     name = "com_github_golang_protobuf",
     importpath = "github.com/golang/protobuf",

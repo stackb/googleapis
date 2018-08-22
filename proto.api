@@ -6,6 +6,7 @@
 
 PROTOBUF_COMMIT = "e34ec6077af141dd5dfc1c334ecdcce3c6b51612"
 GOOGLEAPIS_COMMIT = "d777a7f63a317ffa5dd88b191c312ab3d981a608"
+BAZEL_COMMIT = "398478cc334283a6a9c8740f8ac81b5962e5cba7"
 
 proto_api(
     location = "github.com",
@@ -149,5 +150,48 @@ proto_api(
         "build_events",
         "duration",
         "empty",
+    ],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "bazelbuild",
+    repository = "bazel",
+    commit = BAZEL_COMMIT,
+    name = "invocation_policy",
+    files = ["src/main/protobuf/invocation_policy.proto"],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "bazelbuild",
+    repository = "bazel",
+    commit = BAZEL_COMMIT,
+    name = "option_filters",
+    files = ["src/main/protobuf/option_filters.proto"],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "bazelbuild",
+    repository = "bazel",
+    commit = BAZEL_COMMIT,
+    name = "command_line",
+    files = ["src/main/protobuf/command_line.proto"],
+    deps = [
+        "option_filters",
+    ],
+)
+
+proto_api(
+    location = "github.com",
+    organization = "bazelbuild",
+    repository = "bazel",
+    commit = BAZEL_COMMIT,
+    name = "build_event_stream",
+    files = ["src/main/java/com/google/devtools/build/lib/buildeventstream/proto/build_event_stream.proto"],
+    deps = [
+        "invocation_policy",
+        "command_line",
     ],
 )
