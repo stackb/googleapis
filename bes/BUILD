@@ -10,10 +10,10 @@ go_library(
     importpath = "github.com/stackb/googleapis/bes",
     visibility = ["//visibility:private"],
     deps = [
-        "@build_stack_go_github_com_bazelbuild_bazel_build_event_stream_d6b40d94//:go_default_library",
-        "@build_stack_go_github_com_google_protobuf_empty_6ff2474d//:go_default_library",
-        "@build_stack_go_github_com_googleapis_googleapis_build_events_e8a83bde//:go_default_library",
-        "@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//:go_default_library",
+        "@build_stack_go_github_com_bazelbuild_bazel_build_event_stream_d6b40d94//go",  # keep
+        "@build_stack_go_github_com_google_protobuf_empty_6ff2474d//go",  # keep
+        "@build_stack_go_github_com_googleapis_googleapis_build_events_e8a83bde//go",  # keep
+        "@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//go",  # keep
         "@com_github_golang_protobuf//proto:go_default_library",
         "@com_github_golang_protobuf//ptypes:go_default_library",
         "@io_bazel_rules_go//proto/wkt:any_go_proto",

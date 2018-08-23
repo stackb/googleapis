@@ -9,10 +9,12 @@ import (
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/any"
 	//any "go.stack.build/github.com/google/protobuf/any/b3a0960f"
-	bes "go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94"
-	empty "go.stack.build/github.com/google/protobuf/empty/6ff2474d"
-	be "go.stack.build/github.com/googleapis/googleapis/build_events/e8a83bde"
-	pbe "go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7"
+
+	bes "go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94/go"
+	empty "go.stack.build/github.com/google/protobuf/empty/6ff2474d/go"
+	be "go.stack.build/github.com/googleapis/googleapis/build_events/e8a83bde/go"
+	pbe "go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7/go"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 )
@@ -30,9 +32,9 @@ func NewBuildEventService() *BuildEventService {
 
 func (s *BuildEventService) PublishLifecycleEvent(ctx context.Context, req *pbe.PublishLifecycleEventRequest) (*empty.Empty, error) {
 	log.Println("Got publish lifecycle event %+v", req)
-	key := req.ProjectId
+	//key := req.ProjectId
 	//queue := s.LifecycleQueue
-	log.Printf("Got publish event %s...", key)
+	log.Printf("Got publish event %v", req)
 	//queue <- req
 	//log.Printf("lce sent to channel %s\n", key)
 	return &empty.Empty{}, nil

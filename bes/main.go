@@ -7,7 +7,7 @@ import (
 
 	//proto "github.com/golang/protobuf/proto"
 
-	publish_build_event "go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7"
+	publish_build_event "go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7/go"
 
 	"google.golang.org/grpc"
 )

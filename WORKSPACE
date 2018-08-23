@@ -29,31 +29,41 @@ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 
 gazelle_dependencies()
 
+#####################################################################
+# PROTO DEPS
+#####################################################################
+
+# https://go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7
+PUBLISH_BUILD_EVENT_COMMIT = "3cf18727f62bcf9622cdf88cee9528f1540b44c2"
+
+# https://go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94
+BUILD_EVENT_STREAM_COMMIT = "4eb1357c71b41b0f1d414850c3174f1a9ccee5c9"
+
 git_repository(
     name = "build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7",
     remote = "https://go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7.git",
-    commit = "4c01b6771c0631c92380f2ca366bd73655966465",
+    commit = PUBLISH_BUILD_EVENT_COMMIT,
 )
 
 load(
-    "@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//:godeps.bzl",
-    "publish_build_event_proto_repositories",
+    "@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//:deps.bzl",
+    "publish_build_event_transitive_deps",
 )
 
-publish_build_event_proto_repositories()
+publish_build_event_transitive_deps()
 
 git_repository(
     name = "build_stack_go_github_com_bazelbuild_bazel_build_event_stream_d6b40d94",
     remote = "https://go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94.git",
-    commit = "9386f2933bc6a51a2ad14d3ab8495134bdd29179",
+    commit = BUILD_EVENT_STREAM_COMMIT,
 )
 
 load(
-    "@build_stack_go_github_com_bazelbuild_bazel_build_event_stream_d6b40d94//:godeps.bzl",
-    "build_event_stream_proto_repositories",
+    "@build_stack_go_github_com_bazelbuild_bazel_build_event_stream_d6b40d94//:deps.bzl",
+    "build_event_stream_transitive_deps",
 )
 
-build_event_stream_proto_repositories()
+build_event_stream_transitive_deps()
 
 go_repository(
     name = "com_github_golang_protobuf",
@@ -72,3 +82,16 @@ go_repository(
     build_file_generation = "on",
     build_file_proto_mode = "disable",
 )
+
+http_archive(
+    name = "com_github_grpc_grpc",
+    urls = ["https://github.com/grpc/grpc/archive/v1.14.1.tar.gz"],
+    sha256 = "16f22430210abf92e06626a5a116e114591075e5854ac78f1be8564171658b70",
+    strip_prefix = "grpc-1.14.1",
+)
+
+load(
+    "@com_github_grpc_grpc//bazel:grpc_deps.bzl",
+    "grpc_deps",
+)
+grpc_deps()

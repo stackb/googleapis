@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	bes "go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94"
+	bes "go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94/go"
 )
 
 type BuildEventListener interface {

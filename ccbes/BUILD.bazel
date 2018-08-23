@@ -1,0 +1,16 @@
+cc_library(
+    name = "main",
+    srcs = ["main.cc"],
+    deps = [
+        "@com_github_grpc_grpc//:grpc++",
+        "@build_stack_go_github_com_bazelbuild_bazel_build_event_stream_d6b40d94//:cc",  
+        "@build_stack_go_github_com_google_protobuf_empty_6ff2474d//:cc",  
+        "@build_stack_go_github_com_googleapis_googleapis_build_events_e8a83bde//:cc",  
+        "@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//:cc",  
+    ],
+)
+
+cc_binary(
+    name = "ccbes",
+    deps = [":main"],
+)
