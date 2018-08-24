@@ -15,6 +15,7 @@ closure_js_library(
         "@build_stack_go_github_com_google_protobuf_empty_6ff2474d//closure_js",  
         "@build_stack_go_github_com_googleapis_googleapis_build_events_e8a83bde//closure_js",  
         "@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//closure_js",  
+        "@build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7//grpc_js",  
     ],
 )
 

@@ -51,10 +51,10 @@ gazelle_dependencies()
 #####################################################################
 
 # https://go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7
-PUBLISH_BUILD_EVENT_COMMIT = "bec2e705434498936370fc8a9570f9de33d66ee0"
+PUBLISH_BUILD_EVENT_COMMIT = "caafbcb932bd9cf9ab6e4147a79647ee1c618bb7"
 
 # https://go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94
-BUILD_EVENT_STREAM_COMMIT = "abb56b2a4dbb0570314096cc20d516ea1493f25b"
+BUILD_EVENT_STREAM_COMMIT = "c05218fdea3a272d3d9e1a263196e11f145ee685"
 
 git_repository(
     name = "build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7",
@@ -113,3 +113,8 @@ load(
 )
 grpc_deps()
 
+git_repository(
+    name = "com_github_stackb_grpc_js",
+    remote = "https://github.com/stackb/grpc.js.git",
+    commit = "bd1a203489b91db158f29c15daf1d213ad179e93",
+)
