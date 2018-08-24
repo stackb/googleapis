@@ -1,6 +1,23 @@
 workspace(name = "com_github_stackb_googleapis")
 
 #####################################################################
+# RULES_CLOSURE
+#####################################################################
+
+#RULES_CLOSURE_VERSION = "e743ad91efaea4cb57ce474e2b51edcea49ad10a"
+RULES_CLOSURE_VERSION = "3555e5ba61fdcc17157dd833eaf7d19b313b1bca"
+
+http_archive(
+    name = "io_bazel_rules_closure",
+    url = "https://github.com/bazelbuild/rules_closure/archive/%s.zip" % RULES_CLOSURE_VERSION,
+    strip_prefix = "rules_closure-%s" % RULES_CLOSURE_VERSION,
+)
+
+load("@io_bazel_rules_closure//closure:defs.bzl", "closure_repositories")
+
+closure_repositories()
+
+#####################################################################
 # RULES_GO
 #####################################################################
 
@@ -34,10 +51,10 @@ gazelle_dependencies()
 #####################################################################
 
 # https://go.stack.build/github.com/googleapis/googleapis/publish_build_event/6215aac7
-PUBLISH_BUILD_EVENT_COMMIT = "3cf18727f62bcf9622cdf88cee9528f1540b44c2"
+PUBLISH_BUILD_EVENT_COMMIT = "bec2e705434498936370fc8a9570f9de33d66ee0"
 
 # https://go.stack.build/github.com/bazelbuild/bazel/build_event_stream/d6b40d94
-BUILD_EVENT_STREAM_COMMIT = "4eb1357c71b41b0f1d414850c3174f1a9ccee5c9"
+BUILD_EVENT_STREAM_COMMIT = "abb56b2a4dbb0570314096cc20d516ea1493f25b"
 
 git_repository(
     name = "build_stack_go_github_com_googleapis_googleapis_publish_build_event_6215aac7",
@@ -95,3 +112,4 @@ load(
     "grpc_deps",
 )
 grpc_deps()
+
