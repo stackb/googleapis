@@ -32,7 +32,7 @@ closure_js_library(
 
 closure_js_binary(
     name = "bundle",
-    compilation_level = "SIMPLE",
+    compilation_level = "ADVANCED",
     entry_points = ["goog:cljsbes.main"],
     output_wrapper = "(function(){%output%}).call(this);",
     deps = [
